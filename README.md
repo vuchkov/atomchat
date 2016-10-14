@@ -11,4 +11,4 @@ New messages appear top-down to minimise scrolling. The optional Push button man
 
 Published under the terms of the GPL version 3 or later.
 
-http://phclaus.eu.org/php-scripts/atomchat/
+http://phclaus.com/php-scripts/atomchat/
