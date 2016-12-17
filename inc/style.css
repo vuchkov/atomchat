@@ -2,8 +2,7 @@ body {
   background-color: #fff;
   color: #333;
   font-family: sans-serif;
-  font-size: 75%;
-  max-width: 800px;
+  font-size: 85%;
 }
 
 #ac_head {
@@ -12,9 +11,35 @@ body {
   font-size: 100%;
   font-weight: bold;
   border: 1px solid #666;
-  width: 100%;
   height: 20px;
-  padding: 2px 0 2px 0;
+  padding: 2px;
+}
+
+#ac_page {
+  background-color: #fff;
+  color: #333;
+  border: 0;
+  font-size: 100%;
+  overflow: auto;
+}
+
+object {
+  background-color: #fff;
+  color: #333;
+  border: 0;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin: 2px 0 2px 0;
+}
+
+#ac_menu {
+  background-color: #999;
+  color: #333;
+  border: 1px solid #666;
+  font-size: 95%;
+  text-align: center;
+  padding: 2px;
 }
 
 #ac_logo {
@@ -23,7 +48,8 @@ body {
 }
 
 #ac_logo img {
- vertical-align: text-top;
+  vertical-align: text-top;
+  margin-top: -1px;
 }
 
 #ac_stat {
@@ -31,57 +57,14 @@ body {
   margin: 2px 4px 2px 2px;
 }
 
-object {
+#ac_info {
   background-color: transparent;
-  color: #333;
-  width: 102%;
-  height: 300px;
-  border: 0;
-  overflow: hidden;
-}
-
-#ac_page {
-  background-color: #ccc;
-  color: #333;
-  border: 1px solid #666;
-  font-size: 100%;
-  width: 100%;
-  height: 100%;
-  margin: -7px 0 0 -8px;
-  overflow: auto;
-}
-
-#ac_menu {
-  position: relative;
-  background-color: #999;
-  color: #333;
-  border: 1px solid #666;
-  font-size: 95%;
-  text-align: center;
-  width: 100%;
-  height: 125px;
-  margin: -15px 0 0 0;
-}
-
-#ac_foot {
-  position: absolute;
-  bottom: 2px;
-  left: 38%;
-}
-
-#ac_char {
-  margin-top: 2px;
+  color: #c00;
+  font-weight: bold;
 }
 
 p {
   text-align: justify;
-  padding: 4px 4px 8px 4px;
-  margin: 0;
-}
-
-ul {
-  margin: 4px;
-  padding-left: 25px;
 }
 
 label {
@@ -106,52 +89,52 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #ffc;
+  background-color: #fff;
   color: #000;
   border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 input[type=text]:hover, input[type=password]:hover {
-  background-color: #ffc;
+  background-color: #fff;
   color: #000;
   border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 textarea {
-  width: 98%;
+  width: 99%;
   background-color: #ccc;
   color: #333;
   border: 1px solid #666;
-  margin: 4px 0 0 0;
-  padding: 2px;
+  font-size: 125%;
 }
 
 textarea:hover {
-  background-color: #ffc;
+  background-color: #fff;
   color: #000;
   border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 .ac_text {
+  font-size: 95%;
   border-bottom: 1px solid #666;
-  margin: 0 0 4px 0;
-  padding: 0;
 }
 
 .ac_text:hover {
-  background-color: #ffc;
+  background-color: #ccc;
   color: #000;
-  animation: ac_anim ease 1s;
 }
 
 .ac_head {
-  font-size: 95%;
   font-weight: bold;
-  margin: 0 2px 0 2px;
-  padding: 2px;
+  margin-top: 0;
+  margin-bottom: -12px;
+}
+
+.ac_data {
+  margin-bottom: 2px;
 }
 
 a {
