@@ -8,4 +8,5 @@
     <li>Required values are missing or invalid.</li>
     <li>The user name is already registered.</li>
   </ul>
+  <p id="ac_info"><noscript>Java Script disabled or not available!</noscript></p>
 </div>
