@@ -1,11 +1,15 @@
 <?php
+//** load config
 include ('./config.php');
 
 //** deny direct access
-if (($_SERVER['HTTP_REFERER'] == '') || ($_SERVER['HTTP_HOST'] != $ac_dom)) {
+if (($_SERVER['HTTP_REFERER'] == '') || 
+    ($_SERVER['HTTP_HOST'] != $ac_dom)) {
   header("Location: ../");
   exit;
 }
+
+//** basic list of banned names -- better use some regex voodoo
 ?>
 admin
 ass
@@ -23,6 +27,7 @@ fuckshit
 fuckyou
 moderator
 piss
+pisser
 pussy
 root
 shit
