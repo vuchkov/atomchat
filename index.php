@@ -1,12 +1,31 @@
 <?php
+//** init session
 session_start();
 
+//** load config
 include ('./inc/config.php');
 
-//** check session
-if (isset ($_SESSION['ac_chat'])) {
-  header("Location: $ac_chm");
-  exit;
+//** expire session after 5 minutes
+if (isset ($_SESSION['ac_time'])) {
+  $ac_dif = (300 - (time() - $_SESSION['ac_time']));
+
+  if ($ac_dif <= 0) {
+    //** clear session
+    unset ($_SESSION['ac_time']);
+    unset ($_SESSION['ac_user']);
+
+    //** update users online counter
+    $ac_on_cur = file_get_contents($ac_cur);
+    $ac_on_val = $ac_on_cur;
+    $ac_on_cur = ($ac_on_val - 1);
+    file_put_contents($ac_cur, $ac_on_cur);
+
+    //** load interface
+    header("Location: $ac_chm");
+    exit;
+  }
+} else {
+  $_SESSION['ac_time'] = time();
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -22,9 +41,7 @@ if (isset ($_SESSION['ac_chat'])) {
     <link rel="stylesheet" href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css">
   </head>
   <body>
-<?php
-include ($ac_hdr);
-?>
+<?php include ($ac_hdr); ?>
     <object data="<?php echo $ac_www . $ac_nip; ?>" type="text/html">Failed to render data object!</object>
     <div id="ac_menu">
       <form action="<?php echo $ac_www . $ac_nif; ?>" method="POST" id="ac_login">
@@ -41,9 +58,7 @@ include ($ac_hdr);
           <input type="submit" name="ac_login" value="Login" title="Click here to login">
         </div>
       </form>
-<?php
-include ($ac_ftr);
-?>
+<?php include ($ac_ftr); ?>
     </div>
   </body>
 </html>
