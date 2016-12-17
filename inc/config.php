@@ -1,12 +1,9 @@
 <?php
-//** domain and script folder
-$ac_dom = 'www.example.com';
+//** domain, protocol, script folder, document root
+$ac_dom = 'example.com';
+$ac_www = 'http://' . $ac_dom;
 $ac_dir = '/atomchat/';
-
-//** document root and url protocol
-//** put absolute path and/or static protocol if variables fail
 $ac_doc = $_SERVER['DOCUMENT_ROOT'];
-$ac_www = $_SERVER['REQUEST_SCHEME'] . '://' . $ac_dom;
 
 //** files and folders
 $ac_inc = $ac_dir . 'inc/';
@@ -30,5 +27,5 @@ if (file_get_contents($ac_cur) != 1) {
   $ac_uop = '';
 }
 
-//** version tag
-$ac_ver = "20160803";
+//** script version
+$ac_ver = 20161216;
