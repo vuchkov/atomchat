@@ -1,9 +1,11 @@
 <?php
+//** init session
 session_start();
 
+//** load config
 include ('./config.php');
 
-//** save current chat log
+//** save data file
 if (isset ($_POST['ac_save'])) {
   header('Content-type: text/html');
   header('Content-Disposition: attachment; filename="atomchat_' . $ac_dat . '"');
@@ -11,24 +13,23 @@ if (isset ($_POST['ac_save'])) {
   exit;
 }
 
-//** quit current session
+//** quit session
 if (isset ($_POST['ac_quit'])) {
 
   //** clear session
-  unset ($_SESSION['ac_chat']);
+  unset ($_SESSION['ac_time']);
+  unset ($_SESSION['ac_user']);
 
-  //** update users online counter
+  //** update users online counter and return to login
   $ac_on_cur = file_get_contents($ac_cur);
   $ac_on_val = $ac_on_cur;
-  $ac_on_cur = ($ac_on_val -1);
+  $ac_on_cur = ($ac_on_val - 1);
   file_put_contents($ac_cur, $ac_on_cur);
-
-  //** return to login
   header("Location: $ac_dir");
   exit;
 }
 
-//** force manual update
+//** manual update
 if (isset ($_POST['ac_push'])) {
     header("Location: $ac_chm");
     exit;
@@ -36,7 +37,6 @@ if (isset ($_POST['ac_push'])) {
 
 //** process new entry
 if (isset ($_POST['ac_post'])) {
-
   $ac_user = $_POST['ac_user'];
   $ac_text = filter_var($_POST['ac_text'], FILTER_SANITIZE_SPECIAL_CHARS);
   $ac_host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
@@ -57,11 +57,11 @@ if (isset ($_POST['ac_post'])) {
     }
 
     //** save post to data file
-    $ac_text  = "<div id=\"". $ac_host . "_" . gmdate('Ymd-His') . "_" . $ac_user . "\" class=\"ac_text\">\n  <p class=\"ac_head\">" . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n  <p>" . $ac_text . "</p>\n</div>\n";
+    $ac_text  = "<div id=\"". $ac_host . "_" . gmdate('Ymd-His') . "_" . $ac_user . "\" class=\"ac_text\">\n  <p class=\"ac_head\">" . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '<p class="ac_data">' . $ac_text . "</p>\n</div>\n";
     $ac_text .= file_get_contents($ac_log);
     file_put_contents($ac_log, $ac_text);
 
-    //** refresh chat log
+    //** refresh data file
     header("Location: $ac_chm");
     exit;
   }
