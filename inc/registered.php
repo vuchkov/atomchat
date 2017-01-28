@@ -1,13 +1,10 @@
 <?php
-//** load config
-include ('./config.php');
-
 //** deny direct access
-if (($_SERVER['HTTP_REFERER'] == '') || 
-    ($_SERVER['HTTP_HOST'] != $ac_dom)) {
+$ac_dat = 'n';
+
+if ($ac_dat == 'n') {
   header('Location: ../');
   exit;
 }
-
 //** registered users are auto-added below
 ?>
