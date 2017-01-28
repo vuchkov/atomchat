@@ -6,7 +6,7 @@
   <p>Note that both <em>Login</em> and <em>Register</em> default to do nothing if:</p>
   <ul>
     <li>Required values are missing or invalid.</li>
-    <li>The user name is already registered.</li>
+    <li>The user name is already registered or banned.</li>
   </ul>
   <p id="ac_info"><noscript>Java Script disabled or not available!</noscript></p>
 </div>
