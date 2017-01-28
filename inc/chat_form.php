@@ -42,13 +42,11 @@ if (isset ($_POST['ac_post'])) {
   $ac_host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 
   //** skip empty post
-  if (($ac_user == '') || ($ac_text == '')) {
+  if (($ac_user == '') || 
+      ($ac_text == '')) {
     header("Location: $ac_chm");
     exit;
   } else {
-    //** decode user name
-    $ac_user = base64_decode($ac_user);
-
     //** link icon and stylesheet for offline reading
     if (!is_file($ac_log)) {
       $ac_link  = '<link rel="shortcut icon" href="' . $ac_www . $ac_dir . 'favicon.png" type="image/png">' . "\n";
@@ -56,12 +54,10 @@ if (isset ($_POST['ac_post'])) {
       file_put_contents($ac_log, $ac_link);
     }
 
-    //** save post to data file
-    $ac_text  = "<div id=\"". $ac_host . "_" . gmdate('Ymd-His') . "_" . $ac_user . "\" class=\"ac_text\">\n  <p class=\"ac_head\">" . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '<p class="ac_data">' . $ac_text . "</p>\n</div>\n";
+    //** save post and refresh data file
+    $ac_text  = "<div id=\"". $ac_host . "_" . gmdate('Ymd-His') . "_" . $ac_user . "\" class=\"ac_text\">\n  <p class=\"ac_head\">" . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '  <p class="ac_data">' . $ac_text . "</p>\n</div>\n";
     $ac_text .= file_get_contents($ac_log);
     file_put_contents($ac_log, $ac_text);
-
-    //** refresh data file
     header("Location: $ac_chm");
     exit;
   }
