@@ -1,25 +1,24 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: sans-serif;
+  font-family: "Droid Sans", Arial, sans-serif;
   font-size: 85%;
 }
 
-#ac_head {
+#ac_header {
+  font-weight: bold;
   background-color: #999;
   color: #333;
-  font-size: 100%;
   font-weight: bold;
-  border: 1px solid #666;
-  height: 20px;
-  padding: 2px;
+  border: 0.063em solid #666;
+  height: 1.250em;
+  padding: 0.125em;
 }
 
 #ac_page {
   background-color: #fff;
   color: #333;
   border: 0;
-  font-size: 100%;
   overflow: auto;
 }
 
@@ -28,39 +27,44 @@ object {
   color: #333;
   border: 0;
   width: 100%;
-  height: 400px;
+  height: 25.000em;
   overflow: hidden;
-  margin: 2px 0 2px 0;
+  margin: 0;
+  padding: 0;
 }
 
 #ac_menu {
   background-color: #999;
   color: #333;
-  border: 1px solid #666;
-  font-size: 95%;
+  border: 0.063em solid #666;
   text-align: center;
-  padding: 2px;
+  padding: 0.125em;
 }
 
 #ac_logo {
   float: left;
-  margin: 2px 2px 2px 4px;
+  margin: 0.125em 0.125em 0.125em 0.250em;
 }
 
 #ac_logo img {
   vertical-align: text-top;
-  margin-top: -1px;
+  margin-top: -0.063em;
 }
 
 #ac_stat {
   float: right;
-  margin: 2px 4px 2px 2px;
+  font-weight: normal;
+  margin: 0.125em 0.250em 0.125em 0.125em;
 }
 
 #ac_info {
   background-color: transparent;
   color: #c00;
   font-weight: bold;
+}
+
+#ac_footer {
+  font-size: 85%;
 }
 
 p {
@@ -74,67 +78,53 @@ label {
 input[type=text], input[type=password] {
   background-color: #ccc;
   color: #333;
-  border: 1px outset #666;
-  margin: 2px 0 2px 0;
-  padding: 2px;
+  border: 0.063em outset #666;
+  margin: 0.125em 0 0.125em 0;
+  padding: 0.125em;
 }
 
 input[type=submit] {
   background-color: #ccc;
   color: #333;
-  font-size: 95%;
   font-weight: bold;
-  border: 1px outset #666;
-  margin: 4px 0 8px 0;
+  border: 0.063em outset #666;
+  margin: 0.250em 0 0.500em 0;
 }
 
 input[type=submit]:hover {
   background-color: #fff;
   color: #000;
-  border: 1px inset #666;
+  border: 0.063em inset #666;
   animation: ac_anim ease 1s;
 }
 
 input[type=text]:hover, input[type=password]:hover {
   background-color: #fff;
   color: #000;
-  border: 1px inset #666;
+  border: 0.063em inset #666;
   animation: ac_anim ease 1s;
 }
 
 textarea {
-  width: 99%;
   background-color: #ccc;
   color: #333;
-  border: 1px solid #666;
-  font-size: 125%;
+  border: 0.063em solid #666;
 }
 
 textarea:hover {
   background-color: #fff;
   color: #000;
-  border: 1px inset #666;
+  border: 0.063em inset #666;
   animation: ac_anim ease 1s;
 }
 
 .ac_text {
-  font-size: 95%;
-  border-bottom: 1px solid #666;
+  border-bottom: 0.063em solid #666;
 }
 
 .ac_text:hover {
   background-color: #ccc;
   color: #000;
-}
-
-.ac_head {
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: -12px;
-}
-
-.ac_data {
-  margin-bottom: 2px;
 }
 
 a {
