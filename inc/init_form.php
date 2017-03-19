@@ -18,9 +18,12 @@ if (isset ($_POST['ac_register'])) {
     exit;
   } else {
 
-    //** check registered or banned name
-    if ((strpos(file_get_contents($ac_reg), $ac_user) !== false) || 
-        (strpos(file_get_contents($ac_ban), $ac_user) !== false)) {
+    //** link banned names data file
+    include ('./banned.php');
+
+    //** check if name is banned or already registered
+    if ((in_array($ac_user, $ac_nono)) ||
+        (strpos(file_get_contents($ac_reg), $ac_user) !== false)) {
       header("Location: $ac_dir");
       exit;
     } else {
@@ -52,14 +55,14 @@ if (isset ($_POST['ac_login'])) {
     exit;
   } else {
 
-    //** check banned name
-    if ((strpos(file_get_contents($ac_ban), $ac_user) !== FALSE)) {
+    //** check if name is banned
+    if (in_array($ac_user, $ac_nono)) {
       header("Location: $ac_dir");
       exit;
     }
 
     //** check if name and password match
-    if ((strpos(file_get_contents($ac_reg), $ac_user) !== FALSE) && 
+    if ((strpos(file_get_contents($ac_reg), $ac_user) !== FALSE) &&
         (strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE)) {
 
       //** init session
