@@ -23,7 +23,13 @@ if (isset ($_POST['ac_quit'])) {
   //** update users online counter and return to login
   $ac_on_cur = file_get_contents($ac_cur);
   $ac_on_val = $ac_on_cur;
-  $ac_on_cur = ($ac_on_val - 1);
+
+  if ($ac_on_val < 1) {
+    $ac_on_cur = 0;
+  } else {
+    $ac_on_cur = ($ac_on_val - 1);
+  }
+
   file_put_contents($ac_cur, $ac_on_cur);
   header("Location: $ac_dir");
   exit;
@@ -42,15 +48,14 @@ if (isset ($_POST['ac_post'])) {
   $ac_host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 
   //** skip empty post
-  if (($ac_user == '') || 
-      ($ac_text == '')) {
+  if (($ac_user == '') || ($ac_text == '')) {
     header("Location: $ac_chm");
     exit;
   } else {
     //** link icon and stylesheet for offline reading
     if (!is_file($ac_log)) {
-      $ac_link  = '<link rel="shortcut icon" href="' . $ac_www . $ac_dir . 'favicon.png" type="image/png">' . "\n";
-      $ac_link .= '<link rel="stylesheet" href="' . $ac_www . $ac_inc . 'style.css" type="text/css">' . "\n";
+      $ac_link  = '<link rel="shortcut icon" href="' . $ac_www . $ac_dir . 'favicon.png" type="image/png" />' . "\n";
+      $ac_link .= '<link rel="stylesheet" href="' . $ac_www . $ac_inc . 'style.css" type="text/css" />' . "\n";
       file_put_contents($ac_log, $ac_link);
     }
 
