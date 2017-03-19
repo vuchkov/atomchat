@@ -1,8 +1,23 @@
 <?php
-//** domain, protocol, script folder, document root
-$ac_dom = 'www.example.com';
-$ac_www = 'http://' . $ac_dom;
+//** script folder
 $ac_dir = '/atomchat/';
+
+//** check protocol
+$ac_pro = false;
+
+if (isset ($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+  $ac_pro = true;
+} elseif (!empty ($_SERVER['HTTP_X_FORWARDED_PROTO']) && 
+                  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || 
+                  !empty ($_SERVER['HTTP_X_FORWARDED_SSL']) && 
+                  $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+  $ac_pro = true;
+}
+
+//** link protocol and build url
+$ac_pro = $ac_pro ? 'https' : 'http';
+$ac_dom = $_SERVER['HTTP_HOST'];
+$ac_www = $ac_pro . '://' . $ac_dom;
 $ac_doc = $_SERVER['DOCUMENT_ROOT'];
 
 //** files and folders
@@ -28,4 +43,4 @@ if (file_get_contents($ac_cur) != 1) {
 }
 
 //** script version
-$ac_ver = 20170128;
+$ac_ver = 20170318;
