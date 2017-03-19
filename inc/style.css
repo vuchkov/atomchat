@@ -2,17 +2,16 @@ body {
   background-color: #fff;
   color: #333;
   font-family: "Droid Sans", Arial, sans-serif;
-  font-size: 85%;
 }
 
 #ac_header {
+  height: 22px;
   font-weight: bold;
   background-color: #999;
   color: #333;
   font-weight: bold;
-  border: 0.063em solid #666;
-  height: 1.250em;
-  padding: 0.125em;
+  border: 1px solid #666;
+  padding: 2px;
 }
 
 #ac_page {
@@ -29,32 +28,30 @@ object {
   width: 100%;
   height: 25.000em;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
 
 #ac_menu {
   background-color: #999;
   color: #333;
-  border: 0.063em solid #666;
+  border: 1px solid #666;
   text-align: center;
-  padding: 0.125em;
+  padding: 2px;
 }
 
 #ac_logo {
   float: left;
-  margin: 0.125em 0.125em 0.125em 0.250em;
+  margin: 2px 2px 2px 4px;
 }
 
 #ac_logo img {
   vertical-align: text-top;
-  margin-top: -0.063em;
+  margin-top: -1px;
 }
 
 #ac_stat {
   float: right;
   font-weight: normal;
-  margin: 0.125em 0.250em 0.125em 0.125em;
+  margin: 2px 4px 2px 2px;
 }
 
 #ac_info {
@@ -64,7 +61,7 @@ object {
 }
 
 #ac_footer {
-  font-size: 85%;
+  font-size: small;
 }
 
 p {
@@ -75,51 +72,55 @@ label {
   font-weight: bold;
 }
 
+input {
+  font-size: 100%;
+}
+
 input[type=text], input[type=password] {
   background-color: #ccc;
   color: #333;
-  border: 0.063em outset #666;
-  margin: 0.125em 0 0.125em 0;
-  padding: 0.125em;
+  border: 1px outset #666;
+  margin: 2px 0 2px 0;
+  padding: 2px;
 }
 
 input[type=submit] {
   background-color: #ccc;
   color: #333;
   font-weight: bold;
-  border: 0.063em outset #666;
-  margin: 0.250em 0 0.500em 0;
+  border: 1px outset #666;
+  margin: 4px 0 8px 0;
 }
 
 input[type=submit]:hover {
   background-color: #fff;
   color: #000;
-  border: 0.063em inset #666;
+  border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 input[type=text]:hover, input[type=password]:hover {
   background-color: #fff;
   color: #000;
-  border: 0.063em inset #666;
+  border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 textarea {
   background-color: #ccc;
   color: #333;
-  border: 0.063em solid #666;
+  border: 1px solid #666;
 }
 
 textarea:hover {
   background-color: #fff;
   color: #000;
-  border: 0.063em inset #666;
+  border: 1px inset #666;
   animation: ac_anim ease 1s;
 }
 
 .ac_text {
-  border-bottom: 0.063em solid #666;
+  border-bottom: 1px solid #666;
 }
 
 .ac_text:hover {
@@ -145,5 +146,11 @@ a:hover {
 
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 115%;
   }
 }
