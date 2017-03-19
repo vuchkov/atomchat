@@ -13,8 +13,7 @@ $ac_pass = $_POST['ac_pass'];
 if (isset ($_POST['ac_register'])) {
 
   //** check empty name and password
-  if (($ac_user == '') || 
-      ($ac_pass == '')) {
+  if (($ac_user == '') || ($ac_pass == '')) {
     header("Location: $ac_dir");
     exit;
   } else {
@@ -48,8 +47,7 @@ if (isset ($_POST['ac_register'])) {
 if (isset ($_POST['ac_login'])) {
 
   //** check empty name and password
-  if (($ac_user == '') || 
-      ($ac_pass == '')) {
+  if (($ac_user == '') || ($ac_pass == '')) {
     header("Location: $ac_dir");
     exit;
   } else {
