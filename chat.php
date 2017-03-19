@@ -6,27 +6,27 @@ session_start();
 include ('./inc/config.php');
 
 //** check session
-if ((!isset ($_SESSION['ac_time'])) || 
-    (!isset ($_SESSION['ac_user']))) {
+if ((!isset ($_SESSION['ac_time'])) || (!isset ($_SESSION['ac_user']))) {
   header("Location: $ac_dir");
   exit;
 }
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <title>Atom Chat</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="language" content="en-GB">
-    <meta name="description" content="Atom Chat free PHP chat script">
-    <meta name="keywords" content="Atom Chat">
-    <meta name="robots" content="noodp, noydir">
-    <link rel="shortcut icon" href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png">
-    <link rel="stylesheet" href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="language" content="en-GB" />
+    <meta name="description" content="Atom Chat free PHP chat script" />
+    <meta name="keywords" content="Atom Chat" />
+    <meta name="robots" content="noodp, noydir" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <link rel="shortcut icon" href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png" />
+    <link rel="stylesheet" href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css" />
   </head>
   <body>
 <?php include ($ac_hdr); ?>
-    <object data="<?php echo $ac_www . $ac_chp; ?>" type="text/html">Failed to render data object!</object>
+    <object data="<?php echo $ac_www . $ac_chp; ?>" type="text/html">Failed to render object data!</object>
     <div id="ac_menu">
       <form action="<?php echo $ac_www . $ac_chf; ?>" method="POST" id="ac_chat">
         <div id="ac_char">Text <span id="ac_count"></span></div>
@@ -34,11 +34,11 @@ if ((!isset ($_SESSION['ac_time'])) ||
           <textarea rows="4" cols="40" name="ac_text" maxlength="256" title="Type here to enter your message" onkeyup="ac_count('ac_text');"></textarea>
         </div>
         <div>
-          <input type="hidden" name="ac_user" value="<?php echo $_SESSION['ac_user']; ?>">
-          <input type="submit" name="ac_quit" value="Quit" title="Click here to quit the current session">
-          <input type="submit" name="ac_save" value="Save" title="Click here to download and save the current session">
-          <input type="submit" name="ac_push" value="Push" title="Click here to manually update the current session">
-          <input type="submit" name="ac_post" value="Post" title="Click here to post your message">
+          <input type="hidden" name="ac_user" value="<?php echo $_SESSION['ac_user']; ?>" />
+          <input type="submit" name="ac_quit" value="Quit" title="Click here to quit the current session" />
+          <input type="submit" name="ac_save" value="Save" title="Click here to download and save the current session" />
+          <input type="submit" name="ac_push" value="Push" title="Click here to manually update the current session" />
+          <input type="submit" name="ac_post" value="Post" title="Click here to post your message" />
         </div>
       </form>
 <?php include ($ac_ftr); ?>
