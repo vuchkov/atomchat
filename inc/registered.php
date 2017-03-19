@@ -8,3 +8,4 @@ if ($ac_dat == 'n') {
 }
 //** registered users are auto-added below
 ?>
+test|test
