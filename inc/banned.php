@@ -6,7 +6,7 @@ if ($ac_dat == 'n') {
   header('Location: ../');
   exit;
 }
-//** basic list of banned names -- better use some regex voodoo
+//** basic list of banned names -- some regex voodoo may be better
 ?>
 admin
 ass
