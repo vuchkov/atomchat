@@ -37,8 +37,8 @@ if (isset ($_POST['ac_quit'])) {
 
 //** manual update
 if (isset ($_POST['ac_push'])) {
-    header("Location: $ac_chm");
-    exit;
+  header("Location: $ac_chm");
+  exit;
 }
 
 //** process new entry
