@@ -28,6 +28,11 @@ $ac_dom = $_SERVER['HTTP_HOST'];
 $ac_www = $ac_pro . '://' . $ac_dom;
 $ac_doc = $_SERVER['DOCUMENT_ROOT'];
 
+//** check log folder
+if (!is_dir('../log')) {
+  mkdir('../log');
+}
+
 //** files and folders
 $ac_inc = $ac_dir . 'inc/';
 $ac_hdr = $ac_doc . $ac_inc . 'header.php';
@@ -51,4 +56,4 @@ if (file_get_contents($ac_cur) != 1) {
 }
 
 //** script version
-$ac_ver = 20170322;
+$ac_ver = 20170323;
