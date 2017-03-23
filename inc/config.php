@@ -29,8 +29,8 @@ $ac_www = $ac_pro . '://' . $ac_dom;
 $ac_doc = $_SERVER['DOCUMENT_ROOT'];
 
 //** check log folder
-if (!is_dir('../log')) {
-  mkdir('../log');
+if (!is_dir($ac_doc . $ac_dir . 'log')) {
+  mkdir($ac_doc . $ac_dir . 'log');
 }
 
 //** files and folders
