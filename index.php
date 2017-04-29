@@ -7,7 +7,7 @@ include ('./inc/config.php');
 
 //** expire session after 5 minutes
 if (isset ($_SESSION['ac_time'])) {
-  $ac_dif = (300 - (time() - $_SESSION['ac_time']));
+  $ac_dif = (300-(time()-$_SESSION['ac_time']));
 
   if ($ac_dif <= 0) {
     //** clear session
@@ -18,10 +18,10 @@ if (isset ($_SESSION['ac_time'])) {
     $ac_on_cur = file_get_contents($ac_cur);
     $ac_on_val = $ac_on_cur;
 
-    if ($ac_on_val < 1) {
+    if ($ac_on_val <1) {
       $ac_on_cur = 0;
     } else {
-      $ac_on_cur = ($ac_on_val - 1);
+      $ac_on_cur = ($ac_on_val-1);
     }
 
     file_put_contents($ac_cur, $ac_on_cur);
