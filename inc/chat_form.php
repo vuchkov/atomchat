@@ -60,7 +60,7 @@ if (isset ($_POST['ac_post'])) {
     }
 
     //** save post and refresh data file
-    $ac_text  = "<div id=\"". $ac_host . "_" . gmdate('Ymd-His') . "_" . $ac_user . "\" class=\"ac_text\">\n  <p class=\"ac_head\">" . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '  <p class="ac_data">' . $ac_text . "</p>\n</div>\n";
+    $ac_text  = '<div id="' . $ac_host . '_' . gmdate('Ymd-His') . '_' . $ac_user . '" class="ac_text">' . "\n" . '<p class="ac_head">' . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '  <p class="ac_data">' . $ac_text . "</p>\n</div>\n";
     $ac_text .= file_get_contents($ac_log);
     file_put_contents($ac_log, $ac_text);
     header("Location: $ac_chm");
