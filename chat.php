@@ -5,17 +5,40 @@ session_start();
 //** load config
 include ('./inc/config.php');
 
-//** check session
-if ((!isset ($_SESSION['ac_time'])) || (!isset ($_SESSION['ac_user']))) {
-  header("Location: $ac_dir");
-  exit;
+//** expire session after 5 minutes
+if (isset ($_SESSION['ac_time'])) {
+  $ac_dif = (300 - (time() - $_SESSION['ac_time']));
+
+  if ($ac_dif <= 0) {
+    //** clear session
+    unset ($_SESSION['ac_time']);
+    unset ($_SESSION['ac_user']);
+
+    //** update users online counter
+    $ac_on_cur = file_get_contents($ac_cur);
+    $ac_on_val = $ac_on_cur;
+
+    if ($ac_on_val < 1) {
+      $ac_on_cur = 0;
+    } else {
+      $ac_on_cur = ($ac_on_val - 1);
+    }
+
+    file_put_contents($ac_cur, $ac_on_cur);
+
+    //** load interface
+    header("Location: $ac_chm");
+    exit;
+  }
+} else {
+  $_SESSION['ac_time'] = time();
 }
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
-    <title>Atom Chat</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Atom Chat Login</title>
+    <meta charset="UTF-8" />
     <meta name="language" content="en-GB" />
     <meta name="description" content="Atom Chat free PHP chat script" />
     <meta name="keywords" content="Atom Chat" />
@@ -26,56 +49,22 @@ if ((!isset ($_SESSION['ac_time'])) || (!isset ($_SESSION['ac_user']))) {
   </head>
   <body>
 <?php include ($ac_hdr); ?>
-    <object data="<?php echo $ac_www . $ac_chp; ?>" type="text/html">Failed to render object data!</object>
+    <object data="<?php echo $ac_www . $ac_nip; ?>" type="text/html">Failed to render object data!</object>
     <div id="ac_menu">
-      <form action="<?php echo $ac_www . $ac_chf; ?>" method="POST" id="ac_chat">
-        <div id="ac_char">Text <span id="ac_count"></span></div>
+      <form action="<?php echo $ac_www . $ac_nif; ?>" method="POST" id="ac_login">
         <div>
-          <textarea rows="4" cols="40" name="ac_text" maxlength="256" title="Type here to enter your message" onkeyup="ac_count('ac_text');"></textarea>
+          <label for="ac_user">User</label>
+          <input type="text" name="ac_user" id="ac_user" maxlength="16" title="Please enter your user name" />
         </div>
         <div>
-          <input type="hidden" name="ac_user" value="<?php echo $_SESSION['ac_user']; ?>" />
-          <input type="submit" name="ac_quit" value="Quit" title="Click here to quit the current session" />
-          <input type="submit" name="ac_save" value="Save" title="Click here to download and save the current session" />
-          <input type="submit" name="ac_push" value="Push" title="Click here to manually update the current session" />
-          <input type="submit" name="ac_post" value="Post" title="Click here to post your message" />
+          <label for="ac_pass">Pass</label>
+          <input type="password" name="ac_pass" id="ac_pass" maxlength="16" title="Please enter your password" />
+        </div>
+        <div>
+          <input type="submit" name="ac_login" value="Login" title="Click here to login" />
         </div>
       </form>
 <?php include ($ac_ftr); ?>
     </div>
-    <script type="text/javascript">
-    //** character counter
-    var ac_cmax = 256;
-    var ac_cdiv = "ac_count";
-
-    //** init counter
-    document.getElementById(ac_cdiv).innerHTML = "(" + ac_cmax + ")";
-
-    //** count characters
-    function ac_count(ac_token, ac_counter) {
-      var ac_count, ac_counter, ac_form = "";
-
-      if (ac_token == "ac_text") {
-        ac_count   = ac_cmax;
-        ac_counter = ac_cdiv;
-        ac_form    = document.forms.ac_chat.ac_text.value;
-      } else {
-        alert("Invalid counter!");
-      }
-
-      var ac_ucount  = ac_form;
-      var ac_ulength = ac_ucount.length;
-
-      //** check maximimum characters
-      if (ac_ulength > ac_count) {
-        ac_ucount = ac_ucount.substring(0, ac_count);
-        ac_form   = ac_ucount;
-        return false;
-      }
-
-      //** update counter
-      document.getElementById(ac_counter).innerHTML = "(" + (ac_count - ac_ulength) + ")";
-    }
-    </script>
   </body>
 </html>
