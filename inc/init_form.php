@@ -12,13 +12,12 @@ $ac_pass = $_POST['ac_pass'];
 //** login
 if (isset ($_POST['ac_login'])) {
   //** check empty name and password
-  if (($ac_user == '') || ($ac_pass == '')) {
+  if ($ac_user == '' || $ac_pass == '') {
     header("Location: $ac_dir");
     exit;
   } else {
     //** check if name and password match
-    if ((strpos(file_get_contents($ac_reg), $ac_user) !== FALSE) &&
-        (strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE)) {
+    if (strpos(file_get_contents($ac_reg), $ac_user) !== FALSE && strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE) {
     } else {
       //** check banned name
       if (stripos(file_get_contents($ac_ban), $ac_user) !== FALSE) {
