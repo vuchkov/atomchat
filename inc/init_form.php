@@ -12,12 +12,14 @@ $ac_pass = $_POST['ac_pass'];
 //** login
 if (isset ($_POST['ac_login'])) {
   //** check empty name and password
-  if ($ac_user == '' || $ac_pass == '') {
+  if ($ac_user === "" || $ac_pass === "") {
     header("Location: $ac_dir");
     exit;
   } else {
     //** check if name and password match
-    if (strpos(file_get_contents($ac_reg), $ac_user) !== FALSE && strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE) {
+    if (
+        strpos(file_get_contents($ac_reg), $ac_user) !== FALSE && 
+        strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE) {
     } else {
       //** check banned name
       if (stripos(file_get_contents($ac_ban), $ac_user) !== FALSE) {
@@ -25,7 +27,7 @@ if (isset ($_POST['ac_login'])) {
         exit;
       } else {
       //** add new user to data file
-        $ac_reg_new = $ac_user . '|' . $ac_pass . "\n";
+        $ac_reg_new = "$ac_user|$ac_pass\n";
         file_put_contents($ac_reg, $ac_reg_new, FILE_APPEND);
       }
     }
@@ -34,14 +36,14 @@ if (isset ($_POST['ac_login'])) {
   }
 
   //** check valid login
-  if ($ac_login == 1) {
+  if ($ac_login === 1) {
     //** init session
     $_SESSION['ac_time'] = time();
     $_SESSION['ac_user'] = $ac_user;
     //** update users online counter and load chat
     $ac_on_cur = file_get_contents($ac_cur);
     $ac_on_val = $ac_on_cur;
-    $ac_on_cur = ($ac_on_val + 1);
+    $ac_on_cur = ($ac_on_val+1);
     file_put_contents($ac_cur, $ac_on_cur);
     header("Location: $ac_chm");
     exit;  
