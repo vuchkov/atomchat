@@ -1,20 +1,11 @@
 <?php
-//** script folder and check protocol
-$ac_dir = "/atomchat/";
-$ac_pro = FALSE;
+//** script folder and protocol
+$ac_dir = "/site/chat/";
+$ac_pro = "http://";
 
-if (isset ($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on") {
-  $ac_pro = TRUE;
-} elseif (
-          !empty ($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === "https" || 
-          !empty ($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === "on") {
-  $ac_pro = TRUE;
-}
-
-//** link protocol and build url
-$ac_pro = $ac_pro ? "https" : "http";
+//** internals
 $ac_dom = $_SERVER['HTTP_HOST'];
-$ac_www = $ac_pro . "://" . $ac_dom;
+$ac_www = $ac_pro . $ac_dom;
 $ac_doc = $_SERVER['DOCUMENT_ROOT'];
 
 //** check log folder
@@ -45,4 +36,4 @@ if (file_get_contents($ac_cur) !== 1) {
 }
 
 //** script version
-$ac_ver = 20170429;
+$ac_ver = 20170509;
