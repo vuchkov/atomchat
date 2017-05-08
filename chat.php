@@ -15,35 +15,35 @@ if (!isset ($_SESSION['ac_time']) || !isset ($_SESSION['ac_user'])) {
 <html lang="en-GB">
   <head>
     <title>Atom Chat</title>
-    <meta charset="UTF-8" />
-    <meta name="language" content="en-GB" />
-    <meta name="description" content="Atom Chat free PHP chat script" />
-    <meta name="keywords" content="Atom Chat, free PHP chat scripts" />
-    <meta name="robots" content="noodp, noydir" />
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png" />
-    <link rel="stylesheet" href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css" />
+    <meta charset=UTF-8 />
+    <meta name=language content=en-GB />
+    <meta name=description content="Atom Chat free PHP chat script"/>
+    <meta name=keywords content="Atom Chat, free PHP chat scripts"/>
+    <meta name=robots content="noodp, noydir"/>
+    <meta name=viewport content="width=device-width, height=device-height, initial-scale=1"/>
+    <link rel=icon href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png"/>
+    <link rel=stylesheet href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css"/>
   </head>
   <body>
 <?php include ($ac_hdr); ?>
     <object data="<?php echo $ac_www . $ac_chp; ?>" type="text/html">Failed to render object data!</object>
-    <div id="ac_menu">
-      <form action="<?php echo $ac_www . $ac_chf; ?>" method="POST" id="ac_chat">
-        <div id="ac_char">Text <span id="ac_count"></span></div>
+    <div id=ac_menu>
+      <form action="<?php echo $ac_www . $ac_chf; ?>" method=POST id=ac_chat accept-charset=UTF-8>
+        <div id=ac_char>Text <span id=ac_count></span></div>
         <div>
-          <textarea rows="4" cols="40" name="ac_text" maxlength="256" title="Type here to enter your message" onkeyup="ac_count('ac_text');"></textarea>
+          <textarea name=ac_text rows=4 cols=40 maxlength=256 title="Type here to enter your message" onkeyup=ac_count('ac_text');></textarea>
         </div>
         <div>
-          <input type="hidden" name="ac_user" value="<?php echo $_SESSION['ac_user']; ?>" />
-          <input type="submit" name="ac_quit" value="Quit" title="Click here to quit the current session" />
-          <input type="submit" name="ac_save" value="Save" title="Click here to download and save the current session" />
-          <input type="submit" name="ac_push" value="Push" title="Click here to manually update the current session" />
-          <input type="submit" name="ac_post" value="Post" title="Click here to post your message" />
+          <input name=ac_user value=<?php echo $_SESSION['ac_user']; ?> type=hidden />
+          <input name=ac_quit value=Quit title="Click here to quit the current session" type=submit />
+          <input name=ac_save value=Save title="Click here to download and save the current session" type=submit />
+          <input name=ac_push value=Push title="Click here to manually update the current session" type=submit />
+          <input name=ac_post value=Post title="Click here to post your message" type=submit />
         </div>
       </form>
 <?php include ($ac_ftr); ?>
     </div>
-    <script type="text/javascript">
+    <script>
     //** character counter
     var ac_cmax = 256;
     var ac_cdiv = "ac_count";
