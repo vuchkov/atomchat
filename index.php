@@ -38,30 +38,30 @@ if (isset ($_SESSION['ac_time'])) {
 <html lang="en-GB">
   <head>
     <title>Atom Chat Login</title>
-    <meta charset="UTF-8" />
-    <meta name="language" content="en-GB" />
-    <meta name="description" content="Atom Chat free PHP chat script" />
-    <meta name="keywords" content="Atom Chat" />
-    <meta name="robots" content="noodp, noydir" />
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png" />
-    <link rel="stylesheet" href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css" />
+    <meta charset=UTF-8 />
+    <meta name=language content=en-GB />
+    <meta name=description content="Atom Chat free PHP chat script"/>
+    <meta name=keywords content="Atom Chat"/>
+    <meta name=robots content="noodp, noydir"/>
+    <meta name=viewport content="width=device-width, height=device-height, initial-scale=1"/>
+    <link rel=icon href="<?php echo $ac_www . $ac_dir; ?>favicon.png" type="image/png"/>
+    <link rel=stylesheet href="<?php echo $ac_www . $ac_inc; ?>style.css" type="text/css"/>
   </head>
   <body>
 <?php include ($ac_hdr); ?>
     <object data="<?php echo $ac_www . $ac_nip; ?>" type="text/html">Failed to render object data!</object>
-    <div id="ac_menu">
-      <form action="<?php echo $ac_www . $ac_nif; ?>" method="POST" id="ac_login">
+    <div id=ac_menu>
+      <form action="<?php echo $ac_www . $ac_nif; ?>" method=POST id=ac_login accept-charset=UTF-8>
         <div>
-          <label for="ac_user">User</label>
-          <input type="text" name="ac_user" id="ac_user" maxlength="16" title="Please enter your user name" />
+          <label for=ac_user>User</label>
+          <input name=ac_user id=ac_user maxlength=16 title="Please enter your user name"/>
         </div>
         <div>
-          <label for="ac_pass">Pass</label>
-          <input type="password" name="ac_pass" id="ac_pass" maxlength="16" title="Please enter your password" />
+          <label for=ac_pass>Pass</label>
+          <input name=ac_pass id=ac_pass maxlength=16 title="Please enter your password" type=password />
         </div>
         <div>
-          <input type="submit" name="ac_login" value="Login" title="Click here to login" />
+          <input name=ac_login value=Login title="Click here to login" type=submit />
         </div>
       </form>
 <?php include ($ac_ftr); ?>
