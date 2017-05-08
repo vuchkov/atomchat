@@ -6,8 +6,8 @@ session_start();
 include ('./config.php');
 
 //** link name and password
-$ac_user = $_POST['ac_user'];
-$ac_pass = $_POST['ac_pass'];
+$ac_user = htmlentities($_POST['ac_user'], ENT_QUOTES, "UTF-8");
+$ac_pass = htmlentities($_POST['ac_pass'], ENT_QUOTES, "UTF-8");
 
 //** login
 if (isset ($_POST['ac_login'])) {
@@ -17,8 +17,7 @@ if (isset ($_POST['ac_login'])) {
     exit;
   } else {
     //** check if name and password match
-    if (
-        strpos(file_get_contents($ac_reg), $ac_user) !== FALSE && 
+    if (strpos(file_get_contents($ac_reg), $ac_user) !== FALSE && 
         strpos(file_get_contents($ac_reg), $ac_pass) !== FALSE) {
     } else {
       //** check banned name
