@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" href="style.css" />
-<div id="ac_push">
-  <div id="ac_page">
+<link rel=stylesheet type="text/css" href="style.css"/>
+<div id=ac_push>
+  <div id=ac_page>
 <?php
 //** load config
 include ('./config.php');
@@ -17,7 +17,7 @@ if (file_exists($ac_log)) {
 ?>
   </div>
 </div>
-<script type="text/javascript">
+<script>
 //** push helper
 var ac_http = null;
 var ac_init = 0;
