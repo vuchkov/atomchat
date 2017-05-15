@@ -8,5 +8,3 @@ New messages appear top-down to minimise scrolling. The optional _Push_ button m
 - inc/current.php
 - inc/registered.php
 ````
-
-[Script homepage](http://phclaus.com/php-scripts/#AtomChat)
