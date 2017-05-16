@@ -12,7 +12,7 @@ if (!isset ($_SESSION['ac_time']) || !isset ($_SESSION['ac_user'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang=en-GB>
   <head>
     <title>Atom Chat</title>
     <meta charset=UTF-8 />
@@ -74,7 +74,7 @@ if (!isset ($_SESSION['ac_time']) || !isset ($_SESSION['ac_user'])) {
       }
 
       //** update counter
-      document.getElementById(ac_counter).innerHTML = "(" + (ac_count - ac_ulength) + ")";
+      document.getElementById(ac_counter).innerHTML = "(" + (ac_count-ac_ulength) + ")";
     }
     </script>
   </body>
