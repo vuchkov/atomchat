@@ -35,7 +35,7 @@ if (isset ($_SESSION['ac_time'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang=en-GB>
   <head>
     <title>Atom Chat Login</title>
     <meta charset=UTF-8 />
