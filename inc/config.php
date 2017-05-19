@@ -1,6 +1,6 @@
 <?php
 //** script folder and protocol
-$ac_dir = "/site/chat/";
+$ac_dir = "/chat/";
 $ac_pro = "http://";
 
 //** internals
@@ -36,4 +36,4 @@ if (file_get_contents($ac_cur) !== 1) {
 }
 
 //** script version
-$ac_ver = 20170509;
+$ac_ver = 20170519;
