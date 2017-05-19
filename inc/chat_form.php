@@ -43,7 +43,7 @@ if (isset ($_POST['ac_push'])) {
 
 //** process new entry
 if (isset ($_POST['ac_post'])) {
-  $ac_user = $_POST['ac_user'];
+  $ac_user = htmlentities($_POST['ac_user'], ENT_QUOTES, "UTF-8");
   $ac_text = filter_var($_POST['ac_text'], FILTER_SANITIZE_SPECIAL_CHARS);
   $ac_host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 
@@ -60,7 +60,10 @@ if (isset ($_POST['ac_post'])) {
     }
 
     //** save post and refresh data file
-    $ac_text  = '<div id=' . $ac_host . '_' . gmdate('Ymd-His') . '_' . $ac_user . ' class=ac_text>' . "\n" . '<p class=ac_head>' . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . '  <p class=ac_data>' . $ac_text . "</p>\n</div>\n";
+    $ac_text  = '<div id=' . $ac_host . '_' . gmdate('Ymd-His') . '_' . $ac_user . ' class=ac_text>' . "\n" . 
+                '  <p class=ac_head>' . gmdate('Y-m-d H:i:s') . " " . $ac_user . "</p>\n" . 
+                '  <p class=ac_data>' . $ac_text . "</p>\n" . 
+                "</div>\n";
     $ac_text .= file_get_contents($ac_log);
     file_put_contents($ac_log, $ac_text);
     header("Location: $ac_chm");
