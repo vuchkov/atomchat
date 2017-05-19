@@ -50,11 +50,11 @@ function ac_set() {
 //** configure timer
 function ac_time() {
   ac_http = ac_obj();
-  ac_rand = Math.floor(Math.random() * 10000);
+  ac_rand = Math.floor(Math.random()*10000);
 
   if (ac_http != null) {
     ac_link = "<?php echo $ac_chp; ?>?" + ac_rand;
-    ac_http.open("GET", ac_link , true);
+    ac_http.open("GET", ac_link, true);
     ac_http.onreadystatechange = ac_set;
     ac_http.send(null);
   }
