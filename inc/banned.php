@@ -1,8 +1,8 @@
 <?php
 //** deny direct access
-$ac_dat = "n";
+$ac_dat = 1;
 
-if ($ac_dat === "n") {
+if ($ac_dat === 1) {
   header("Location: ../");
   exit;
 }
