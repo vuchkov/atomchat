@@ -54,8 +54,8 @@ if (isset ($_POST['ac_post'])) {
   } else {
     //** link icon and stylesheet for offline reading
     if (!is_file($ac_log)) {
-      $ac_link  = '<link rel=icon href="' . $ac_www . $ac_dir . 'favicon.png" type="image/png" />' . "\n";
-      $ac_link .= '<link rel=stylesheet href="' . $ac_www . $ac_inc . 'style.css" type="text/css" />' . "\n";
+      $ac_link  = '<link rel=icon href="' . $ac_www . $ac_dir . 'favicon.png" type="image/png"/>' . "\n";
+      $ac_link .= '<link rel=stylesheet href="' . $ac_www . $ac_inc . 'style.css" type="text/css"/>' . "\n";
       file_put_contents($ac_log, $ac_link);
     }
 
